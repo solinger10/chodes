@@ -10,13 +10,26 @@
 			gtag('js', new Date());
 			gtag('config', 'UA-147423161-1');
 		</script>
+
 		<style>
+			@keyframes bulger {
+			0% {
+				background-size: 20% 20%;
+			}
+			50% {
+			 	background-size: 10% 10%;
+			}
+			100% {
+				background-size: 20% 20%;
+			}
+		  }
 			body {
 				background-image:url('trump.webp');
 				background-position: center;
 				background-repeat: repeat;
-				background-size: 20%;
+				background-size: 20% 20%;
 				background-attachment: fixed;
+				animation: bulger 4s infinite;
 			}
 		</style>
 	</head>
