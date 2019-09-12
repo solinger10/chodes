@@ -38,7 +38,7 @@
 		}
 
 		html {
-			cursor: url('favicon.ico'), auto;
+			cursor: url('cursor.png'), auto;
 		}
 
 		html,
@@ -487,27 +487,45 @@
 	<script>
 		var body = document.getElementsByTagName('body');
 
-		function add(style, left, scrollAmount) {
+		function add(style, left, scrollAmount, textSize) {
 			var direction = "down"
 			
 			console.log("add " + style);
-			document.body.innerHTML +=`<marquee style="left:${left}%; font-size: 5vw;" scrollamount="${scrollAmount}" direction="${direction}"><div class="style-${style} outer"><div class="style-${style} inner">Chodes</div></div>`
+			document.body.innerHTML +=`<marquee style="left:${left}%; font-size: ${textSize}vw;" scrollamount="${scrollAmount}" direction="${direction}"><div class="style-${style} outer"><div class="style-${style} inner">Chodes</div></div>`
 		}
 
 		function addAll() {
 			for (i = 1; i < 50; i++) {
 				add(
 					Math.floor(Math.random() * 22) + 1,
-					Math.floor(Math.random() * 100) - 20,
+					Math.floor(Math.random() * 100) - 10,
 					Math.floor(Math.random() * 80) + 1,
+					Math.random() * 6 + 2,
 				);
 			}
 		}
-
+	</script>
+	<script type="text/javascript">
+		function setCustomImage() {
+			var url = new URL(window.location.href);
+			console.log(url);
+			var p = url.searchParams.get("p");
+			console.log(p);
+			if (p=="cron"){
+				console.log("cron");
+				document.body.style.backgroundImage = "url('cron.png')";
+			}
+		}
+	</script>
+	<script type="text/javascript">
+		function main() {
+			addAll();
+			setCustomImage();
+		}
 	</script>
 </head>
 
-<body onload="addAll()">
+<body onload="main()">
 </body>
 
 </html>
