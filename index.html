@@ -503,11 +503,28 @@
 				);
 			}
 		}
-
+	</script>
+	<script type="text/javascript">
+		function setCustomImage() {
+			var url = new URL(window.location.href);
+			console.log(url);
+			var p = url.searchParams.get("p");
+			console.log(p);
+			if (p=="cron"){
+				console.log("cron");
+				document.body.style.backgroundImage = "url('cron.png')";
+			}
+		}
+	</script>
+	<script type="text/javascript">
+		function main() {
+			addAll();
+			setCustomImage();
+		}
 	</script>
 </head>
 
-<body onload="addAll()">
+<body onload="main()">
 </body>
 
 </html>
