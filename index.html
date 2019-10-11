@@ -494,14 +494,14 @@
 			var direction = "down"
 			
 			console.log("add " + style);
-			document.body.innerHTML +=`<marquee style="left:${left}%; font-size: ${textSize}pt;" scrollamount="${scrollAmount}" direction="${direction}"><div class="style-${style} outer"><div class="style-${style} inner">Chodes</div></div>`
+			document.body.innerHTML +=`<marquee style="left:${left}%; font-size: ${textSize}pt;" scrollamount="${scrollAmount}" direction="${direction}"><div style="padding-left:50px; padding-right:50px;"class="style-${style} outer"><div class="style-${style} inner">Chodes</div></div>`
 		}
 
 		function addAll() {
 			for (i = 1; i < 50; i++) {
 				add(
 					Math.floor(Math.random() * 22) + 1,
-					Math.floor(Math.random() * 100) - 10,
+					Math.floor(Math.random() * 100) - 12,
 					Math.floor(Math.random() * 80) + 1,
 					Math.random() * 100 + 2,
 				);
