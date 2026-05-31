@@ -8,6 +8,16 @@
   }
 }
 
+@keyframes drop-chode {
+  0% {
+    transform: translateY(-40vh);
+  }
+
+  100% {
+    transform: translateY(115vh);
+  }
+}
+
 body {
   width: 100%;
   height: 100%;
@@ -35,11 +45,14 @@ body {
   width: 100%;
 }
 
-marquee {
-  height: 100%;
+.chode-runner {
+  animation: drop-chode var(--duration) linear infinite;
+  animation-delay: var(--delay);
   z-index: 2;
   position: absolute;
+  top: 0;
   max-width: fit-content;
+  will-change: transform;
 }
 
 .chode-text {
@@ -52,8 +65,8 @@ marquee {
     animation: none;
   }
 
-  marquee {
-    -webkit-marquee-speed: slow;
+  .chode-runner {
+    animation-duration: 60s;
   }
 }
 

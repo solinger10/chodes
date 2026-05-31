@@ -20,14 +20,17 @@
 
   function createChode() {
     const style = randomInt(1, STYLE_COUNT);
-    const marquee = document.createElement("marquee");
+    const runner = document.createElement("div");
     const outer = document.createElement("div");
     const inner = document.createElement("div");
+    const speed = REDUCED_MOTION ? 1 : randomInt(1, 80);
+    const duration = REDUCED_MOTION ? 60 : Math.max(4, 42 - speed * 0.45);
 
-    marquee.style.left = `${randomInt(-12, 87)}%`;
-    marquee.style.fontSize = `${Math.random() * 100 + 2}pt`;
-    marquee.setAttribute("scrollamount", REDUCED_MOTION ? 1 : randomInt(1, 80));
-    marquee.setAttribute("direction", "down");
+    runner.className = "chode-runner";
+    runner.style.left = `${randomInt(-12, 87)}%`;
+    runner.style.fontSize = `${Math.random() * 100 + 2}pt`;
+    runner.style.setProperty("--duration", `${duration}s`);
+    runner.style.setProperty("--delay", `${Math.random() * -duration}s`);
 
     outer.className = `style-${style} outer chode-text`;
     outer.dataset.content = LABEL;
@@ -36,9 +39,9 @@
     inner.textContent = LABEL;
 
     outer.appendChild(inner);
-    marquee.appendChild(outer);
+    runner.appendChild(outer);
 
-    return marquee;
+    return runner;
   }
 
   function addAll() {
